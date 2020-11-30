@@ -1,0 +1,59 @@
+#pixHolder{
+    display:grid;
+    background: white;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+}
+
+#pix{
+    display:grid;
+    background: black;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    
+
+}
+#pixOut{
+    display:grid;
+    background: black;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column-start: 3;
+
+}
+
+#outNum{
+    grid-column-start: 3;
+}
+
+.pixel:nth-child(odd){
+    background:grey;
+}
+.pixel:nth-child(even){
+    background:white;
+}
+
+.pixel{
+
+}
+
+.line {
+    opacity: .5;
+}
+.other {
+    opacity: 0.75;
+}
+.select{
+    opacity: 1;
+}
+
+#labels{
+    position:relative;
+    height:30px;
+}
+#left{
+    position:absolute;
+    left:0;
+}
+#right{
+    position:absolute;
+    right:0;
+}
