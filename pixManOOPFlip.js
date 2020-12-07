@@ -67,7 +67,7 @@ function over(number) {
     inDivText += `y = ${Math.floor(number/w)}<br>`
     inDivText += `PixNum = ${Math.floor(number/w)}*${w}+${number%w}<br>`
     inDivText += `PixNum = ${number}<br>`
-    inDivText += `image.pixels[${y*w+x}]`
+    inDivText += `image.pixels[${number}]`
     inDiv.innerHTML = inDivText;
 
     let outDivText = "Equation:<br>PixNum = y*width+width-1-x<br>"
