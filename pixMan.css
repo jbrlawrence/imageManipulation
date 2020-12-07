@@ -22,6 +22,14 @@
 
 #outNum{
     grid-column-start: 3;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 15px;
+
+}
+#inNum{
+
+  font-family: 'Source Code Pro', monospace;
+  font-size: 15px;
 }
 
 .pixel:nth-child(odd){
@@ -51,16 +59,16 @@
 }
 #labels{
     position:relative;
-    height:30px;
+    height:100px;
     font-family: 'Open Sans', sans-serif;
 }
 #left{
     position:absolute;
-    left:10;
+    left:10px;
     font-family: 'Open Sans', sans-serif;
 }
 #right{
     position:absolute;
-    right:10;
+    right:10px;
     font-family: 'Open Sans', sans-serif;
 }
