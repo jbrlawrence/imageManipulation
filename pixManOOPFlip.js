@@ -44,14 +44,14 @@ function over(number) {
         }
         pixels[i].div.className = cl;
     }
-    
-    
+
+    let flipNum = number + w -1 - number%w;
     for (let i in outPixels) {
-        if (i == number) {
+        if (i == flipNum) {
             cl = "select"
-        } else if (i % w == number % w) {
+        } else if (i % w == flipNum % w) {
             cl = "line";
-        } else if (Math.floor(i / w) == Math.floor(number / w)) {
+        } else if (Math.floor(i / w) == Math.floor(flipNum / w)) {
             cl = "line";
         } else {
             cl = "other";
@@ -67,15 +67,17 @@ function over(number) {
     inDivText += `y = ${Math.floor(number/w)}<br>`
     inDivText += `PixNum = ${Math.floor(number/w)}*${w}+${number%w}<br>`
     inDivText += `PixNum = ${number}<br>`
+    inDivText += `image.pixels[${y*w+x}]`
     inDiv.innerHTML = inDivText;
 
     let outDivText = "Equation:<br>PixNum = y*width+width-1-x<br>"
-    let x = w-1-number%w
+    let x = number%w
     let y = Math.floor(number/w)
     outDivText += `x = ${x}<br>`
     outDivText += `y = ${y}<br>`
-    outDivText += `PixNum = ${y}*${w}+${x}<br>`
+    outDivText += `PixNum = ${y}*${w}+${w}-1-${x}<br>`
     outDivText += `PixNum = ${y*w+x}<br>`
+    outDivText += `pixels[${y*w+x}]`
     outDiv.innerHTML = outDivText;
 
 
@@ -86,7 +88,7 @@ let outPixels = [];
 let colourPix = [];
 
 function setup(mode) {
-    
+
     let myCan = document.getElementById("myCan");
     let myCtx = myCan.getContext("2d");
     myCan.width = w;
@@ -109,7 +111,7 @@ function setup(mode) {
             }
         }
         console.log(colourPix[0]);
-        
+
         let pixDiv = document.getElementById("pix");
         pixDiv.innerHtml = "";
         let template = "";
@@ -136,7 +138,7 @@ function setup(mode) {
                 outPixels.push(new Pix(i, i % w, i / w, pixOutDiv,colourPix[i]));
             }
         }
-        
+
     };
 
     myImg.src = 'parrot.png';
@@ -154,10 +156,8 @@ function changer(){
     h = w;
     ww = window.innerWidth / (3 * w);
 
-    
+
     setup();
-    
-    
+
+
 }
-
-
