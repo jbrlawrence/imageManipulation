@@ -2,14 +2,14 @@
     display:grid;
     background: white;
     grid-template-columns: 1fr 1fr 1fr;
-    
+
 }
 
 #pix{
     display:grid;
     background: black;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    
+
 
 }
 #pixOut{
@@ -45,15 +45,22 @@
     opacity: 1;
 }
 
+#header {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+}
 #labels{
     position:relative;
     height:30px;
+    font-family: 'Open Sans', sans-serif;
 }
 #left{
     position:absolute;
-    left:0;
+    left:10;
+    font-family: 'Open Sans', sans-serif;
 }
 #right{
     position:absolute;
-    right:0;
+    right:10;
+    font-family: 'Open Sans', sans-serif;
 }
