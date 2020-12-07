@@ -1,3 +1,6 @@
+console.log("version 0.1")
+
+
 let w = 20;
 let ww = window.innerWidth / (3 * w);
 let h = 20;
