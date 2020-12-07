@@ -1,4 +1,4 @@
-console.log("version 0.1")
+console.log("version 0.2")
 
 
 let w = 20;
@@ -49,6 +49,7 @@ function over(number) {
     }
 
     let flipNum = number + w -1 - number%w;
+    console.log(`${flipNum} ${number}`);
     for (let i in outPixels) {
         if (i == flipNum) {
             cl = "select"
@@ -79,7 +80,7 @@ function over(number) {
     outDivText += `x = ${x}<br>`
     outDivText += `y = ${y}<br>`
     outDivText += `PixNum = ${y}*${w}+${w}-1-${x}<br>`
-    outDivText += `PixNum = ${y*w+x}<br>`
+    outDivText += `PixNum = ${y*w+w-1-x}<br>`
     outDivText += `pixels[${y*w+x}]`
     outDiv.innerHTML = outDivText;
 
