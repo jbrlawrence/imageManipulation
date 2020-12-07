@@ -48,8 +48,8 @@ function over(number) {
         pixels[i].div.className = cl;
     }
 
-    let flipNum = number + w -1 - number%w;
-    console.log(`${flipNum} ${number}`);
+    let flipNum = number + w - 1 - number%w;
+    console.log(`${w} ${number%w} ${flipNum} ${number}`);
     for (let i in outPixels) {
         if (i == flipNum) {
             cl = "select"
