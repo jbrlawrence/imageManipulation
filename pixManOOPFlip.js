@@ -48,7 +48,7 @@ function over(number) {
         pixels[i].div.className = cl;
     }
 
-    let flipNum = Math.floor(flipNum / w)*w + w - 1 - (number%w);
+    let flipNum = Math.floor(number / w)*w + w - 1 - (number%w);
     console.log(`${w} ${number%w} ${flipNum} ${number}`);
     for (let i in outPixels) {
         if (i == flipNum) {
