@@ -81,7 +81,7 @@ function over(number) {
     outDivText += `y = ${y}<br>`
     outDivText += `PixNum = ${y}*${w}+${w}-1-${x}<br>`
     outDivText += `PixNum = ${y*w+w-1-x}<br>`
-    outDivText += `pixels[${y*w+x}]`
+    outDivText += `pixels[${y*w+w-1-x}]`
     outDiv.innerHTML = outDivText;
 
 
