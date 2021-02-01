@@ -27,10 +27,9 @@
 </body>
 <script defer>
 let terms = ["Alarm clock", "Backpack", "Binder", "Blankets", "Blinds", "Bookcase", "Books", "Broom", "Brush", "Bucket", "Calendar", "Candles", "Carpet", "Chair", "Clock", "Coffee table", "Comb", "Computer", "Couch", "Cup", "Curtains", "Desk", "Dishwasher", "Door stop", "Drill", "Dryer", "Dust pan", "Extension cord", "Fan", "Fire extinguisher", "Flashlight", "Flowers", "Fork", "Glasses", "Hammer", "Heater", "Houseplant", "IPhone", "Iron", "Ironing board", "Lamp", "Light bulbs", "Light switch", "Microwave", "Mop", "Mugs", "Oven", "Pants", "Pen", "Pencil", "Phone", "Piano", "Pillow", "Plate", "Pliers", "Radio", "", "Refrigerator", "Saw", "Scissors", "Screw driver", "Shirt", "Shoes", "Smoke detector", "Running Shoes", "Socks", "Sofa", "Speakers", "Spoon", "Suitcase", "Table", "Telephone", "Toaster", "Toilet paper", "Toothbrush", "Toothpaste", "TV", "Vacuum", "Vase", "Washing machine"] 
-let lister = "";
-for (let i =0; i < 6; i++){
-    lister+= terms[Math.floor(Math.random()*terms.length)]+", "
-}
+
+
+   let lister = terms[Math.floor(Math.random()*terms.length)]
         
         document.getElementById("terms").innerHTML = lister;
 
