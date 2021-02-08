@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SenseAct</title>
+
+    
+
+</head>
+
+<body>
+    <h1>Sensors and Actuators</h1>
+   Write code that uses the following sensor to trigger the given action: 
+    <h2>
+    Use the:
+    <div id="sensors">
+        
+        
+    </div>
+    to trigger the:
+    <div id="actuators">
+        
+    </div>
+    </h2>
+
+</body>
+<script defer>
+let sensors = ["temperature sensor", "light sensor", "left button", "right button", "z-accelerometer", "y-accelerometer", "x-accelerometer", "IR receiver", "connection pads", "microphone", "slide switch"];
+let actuators = ["LED ring", "speaker"];
+let sensor = "";
+
+    sensor+= sensors[Math.floor(Math.random()*sensors.length)]+" ";
+
+        
+        document.getElementById("sensors").innerHTML = sensor;
+    let act = "";
+
+    act+= actuators[Math.floor(Math.random()*actuators.length)]+" ";
+
+        
+        document.getElementById("actuators").innerHTML = act;
+
+    </script>
+</html>
