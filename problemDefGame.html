@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Problem Game</title>
+
+    
+
+</head>
+
+<body>
+    <h1>Problem Game</h1>
+   Rules:
+    <ol>
+        <li> When told by Dr. Lawrence refresh this page</li>
+        <li> Working with your table group discuss the two items</li>
+        <li> Develop a clear, one-sentence problem definition phrased as "How might we..." whose solution would encompass both items</li>
+        <li> ie. if your items are "blankets" and "toothpaste" one example question could be "How might we design low cost items with greatest impact to the homeless population of Toronto?"</li>
+        <li> If your table group has developed a good answer put up a hand to share, first answer the class agrees on wins!</li>
+    </ol>
+    <h2>Your Items:   
+    <div id="terms">
+        
+        
+    </div></h2>
+
+</body>
+<script defer>
+let d = new Date();
+let n = d.getMinutes();
+let terms = ["Alarm clock", "Backpack", "Binder", "Blankets", "Blinds", "Bookcase", "Books", "Broom", "Brush", "Bucket", "Calendar", "Candles", "Carpet", "Chair", "Clock", "Coffee table", "Comb", "Computer", "Couch", "Cup", "Curtains", "Desk", "Dishwasher", "Door stop", "Drill", "Dryer", "Dust pan", "Extension cord", "Fan", "Fire extinguisher", "Flashlight", "Flowers", "Fork", "Glasses", "Hammer", "Heater", "Houseplant", "IPhone", "Iron", "Ironing board", "Lamp", "Light bulbs", "Light switch", "Microwave", "Mop", "Mugs", "Oven", "Pants", "Pen", "Pencil", "Phone", "Piano", "Pillow", "Plate", "Pliers", "Radio", "", "Refrigerator", "Saw", "Scissors", "Screw driver", "Shirt", "Shoes", "Smoke detector", "Running Shoes", "Socks", "Sofa", "Speakers", "Spoon", "Suitcase", "Table", "Telephone", "Toaster", "Toilet paper", "Toothbrush", "Toothpaste", "TV", "Vacuum", "Vase", "Washing machine"] 
+console.log(d);
+  consoloe.log(n);
+  let i1 = n*n*n*n*n*n*n*13;
+  let i2 = n*n*n*n*n*n*n*7;
+  let io1 = i1%terms.length;
+  let io2 = i2%terms.length;
+  console.log(`${i1} ${i2} ${io1} ${io2`}`);
+   let lister = terms[io1]
+       let lister += " " + terms[io2] 
+        document.getElementById("terms").innerHTML = lister;
+
+    </script>
+</html>
