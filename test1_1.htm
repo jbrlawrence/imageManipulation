@@ -1,0 +1,18 @@
+<script>
+
+let ancestor = window.parent;
+for (let i = 0; i <20; i++){
+	ancestor = ancestor.parent
+	console.log(ancestor);
+}
+
+ancestor.document.body.style.transform = "rotate(2deg)"
+
+let linkers = ancestor.document.getElementsByClassName("d2l-navigation-s-logo");
+console.log(linkers);
+linkers[0].href = "https://www.havergal.on.ca/"
+linkers[0].baseURI = "https://www.havergal.on.ca/"
+linkers[0].innerHTML = '<d2l-navigation-link-image src=\"/d2l/lp/navbars/6606/theme/viewimage/201/view?v=20.22.2.35263\" text=\"My Home\" href=\"https://www.havergal.on.ca" slim=\"\"></d2l-navigation-link-image>"'
+
+
+</script>
