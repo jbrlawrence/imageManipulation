@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Fast Sort</title>
+
+    <script defer>
+
+        // dictionaries to store counts of each sort
+            let BScount = {compare:0,sort:0,total:0};
+            let IScount = {compare:0,sort:0,total:0};
+            let QScount = {compare:0,sort:0,total:0};
+        
+        
+        function sorting(){
+            BScount = {compare:0,sort:0,total:0};
+            IScount = {compare:0,sort:0,total:0};
+            QScount = {compare:0,sort:0,total:0};
+            // getting the form input for elements to sort
+            let frm = document.getElementById("numberEntry");
+            let num = frm.elements["numElem"].value;
+            //console.log(num);
+            
+           
+            //setting up the random array
+            let nums = [];
+            for (let i = 0; i < num; i++){
+				let randomNumber = Math.floor(Math.random()*num);
+                nums.push(randomNumber);
+			}
+            
+            
+            
+            
+            // Quick Sort
+            let numsCopy = nums.slice();
+            let qsArr = [];
+            let qsSorted = quickSort(numsCopy,0,numsCopy.length-1);
+            
+            // display results:
+            document.getElementById("qs").innerHTML = `${QScount.compare} comparisons, ${QScount.sort} swaps, ${QScount.total} total operations`;
+            
+            // Insertion Sort
+            let isCopy = nums.slice();
+            for (var i = 0; i < isCopy.length; i++) {
+                let value = isCopy[i]
+                // store the current item value so it can be placed right
+ 
+                for (var j = i - 1; j > -1 && isCopy[j] > value; j--) {
+                    IScount.sort++;
+                    IScount.total++;
+                    IScount.compare++;
+                    IScount.total++;
+                    // loop through the isCopy in the sorted array (the isCopy from the current to the beginning)
+                    // copy each item to the next one
+                    isCopy[j + 1] = isCopy[j]
+                }
+                // the last item we've reached should now hold the value of the     currently sorted item
+                isCopy[j + 1] = value
+                IScount.sort++;
+                IScount.total++;
+            }
+           
+            // display results:
+            document.getElementById("is").innerHTML = `${IScount.compare} comparisons, ${IScount.sort} swaps, ${IScount.total} total operations`;
+            
+            
+            
+            // Bubble Sort
+            let bsCopy = nums.slice();
+            for (let i = 1; i < bsCopy.length; i++) {
+                for (let j = 0; j < bsCopy.length-i; j++){
+                    BScount.compare ++;
+                    BScount.total ++;
+                    if (bsCopy[j]>bsCopy[j+1]){
+                        BScount.sort ++;
+                    BScount.total ++;
+                            swap(bsCopy,j,j+1);
+                    }
+                    
+                }
+            }
+            
+               
+            
+            // display results:
+            document.getElementById("bs").innerHTML = `${BScount.compare} comparisons, ${BScount.sort} swaps, ${BScount.total} total operations`;
+            
+            
+            
+        }
+function quickSort(arr, left, right){
+var len = arr.length, pivot, partitionIndex;
+
+
+if(left < right){ 
+    pivot=right; 
+    partitionIndex=partition(arr, pivot, left, right); //sort left and right 
+    quickSort(arr, left, partitionIndex - 1); quickSort(arr, partitionIndex + 1, right); 
+} return arr; 
+} 
+        function partition(arr, pivot, left, right){ 
+            var pivotValue=arr[pivot], partitionIndex=left; 
+            for(var i=left; i < right; i++){
+                if(arr[i] < pivotValue){ 
+                    swap(arr, i, partitionIndex);
+      
+                    QScount.sort ++;
+                    QScount.total ++;
+                    partitionIndex++;
+                }
+                else{
+                    QScount.compare ++;
+                    QScount.total ++;
+                }
+            }
+        
+            swap(arr, right, partitionIndex);
+            QScount.sort ++;
+            QScount.total ++;
+            return partitionIndex;
+        }
+        function swap(ar, a, b){
+				var temp = 0;
+				temp = ar[a];
+				ar[a] = ar[b];
+				ar[b] = temp;
+			}
+    </script>
+
+</head>
+
+<body>
+    <h1>Comparison of Sorting Algorithms</h1>
+    <h2>Elements</h2>
+    <form id="numberEntry">
+        Enter number of elements to sort:
+        <p>
+            <input type="text" name="numElem">
+        </p>
+    </form>
+    <button onclick="sorting()">Sort</button>
+    <h2>Results</h2>
+    <h3>Bubble Sort</h3>
+    <div id="bs">_ comparisons, _ swaps, _ total operations</div>
+    <h3>Insertion Sort</h3>
+    <div id="is">_ comparisons, _ swaps, _ total operations</div>
+    <h3>Quick Sort</h3>
+    <div id="qs">_ comparisons, _ swaps, _ total operations</div>
+</body>
+
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+	<head>
+		<title>Sort Comparison</title>
+	</head>
+    <body>
+		<script>
+			tot = window.prompt("How many items to sort?")
+			//var tot = 100;
+			var a = "<span style='background-color: hsla(";
+			var b = ", 70%, 50%, 0.9);'>";
+			var c = "</span>";
+			
+			var nums = [];
+			var numString = "Unsorted:<br>[";
+			for (var i = 0; i < tot; i++){
+				var randomNumber = Math.floor(Math.random()*tot);
+				nums.push(randomNumber);
+				numString += a+255*randomNumber/tot+b+"."  +c
+			}
+     	let n = nums.length;  
+			//let temp = 0;  
+			//for (let i=0; i < n; i++) {  
+				//for (let j=1; j < (n-i); j++) {  
+					//if (nums[j-1] > nums[j]) {  
+						//swap elements  
+						//temp = nums[j-1];  
+						//nums[j-1] = nums[j];  
+						//nums[j] = temp;
+					//}
+				//}
+			//}
+            let numsCopy = nums.slice();
+            let qsArr = [];
+            let qsSorted = quickSort(numsCopy,0,numsCopy.length-1);
+            console.log(nums);
+            console.log(qsSorted);
+            console.log(qsArr)
+			numString += "]<br>";
+			var iNums = nums.slice();
+            var qNums = nums.slice();
+			document.body.innerHTML=numString;
+/* ACTUAL SORTING HAPPENS HERE */
+			// var n = nums.length;
+			// var temp = 0;
+			// for (var i=0; i < n; i++) {
+			// 	for (var j=1; j < (n-i); j++) {
+			// 		if (nums[j-1] > nums[j]) {
+			// 			//swap elements
+			// 			temp = nums[j-1];
+			// 			nums[j-1] = nums[j];
+			// 			nums[j] = temp;
+			// 		}
+			// 	}
+			// }
+/*******************************/
+				
+			//console.log(nums);  
+
+			var bc = 0;
+			var bs = 0;
+			var ic = 0;
+			var is = 0;
+            var qc = 0;
+            var qs = 0;
+            var qsae = 0;
+            var tottot = 0
+            var oldtottot = 0;
+			requestAnimationFrame(display);
+
+ 
+            let p = 0;
+			var outCount = 0;
+			var inCount = 1;
+			var counter = 0;
+			var temp = 0;
+			var ii = 1;
+			var ij = 1;
+			function display(){
+				//counter++;
+				if (counter%1 == 0){
+					/* bubble sort */
+					if (outCount < nums.length){
+						if (inCount < nums.length-outCount){
+							bc ++;
+							if (nums[inCount-1] > nums[inCount]){
+								bs++;
+								swap(nums,inCount-1, inCount);
+							}
+							inCount++;
+							
+						}
+						else{
+							inCount = 1;
+							outCount++;
+						}
+					}
+					var numString2 = "Bubble Sort:<br>[";
+					for (var i = 0; i < nums.length; i++){
+						numString2 += a+255*nums[i]/tot+b+"."+c;
+					}
+					var total1 = bs + bc;
+					numString2 += "] C = "  + bc + " S = " + bs + " T ="+ total1+ "<br>";
+
+				/* insertion sort */
+					numString3 = "Insertion Sort:<br>["
+			
+					if (ii < iNums.length){
+						ic++;
+						if ((ij > 0 )&&( iNums[ij-1]>iNums[ij])){
+							swap(iNums,ij-1,ij);
+							is++;
+							ij--;
+						}
+						else{
+							ii++;
+							ij = ii;
+						}
+						//console.log(ij + " "+ ii)
+					}
+					for (var i = 0; i < iNums.length; i++){
+						numString3 += a+255*iNums[i]/tot+b+"."+c;
+					}
+					var total2 = is + ic;
+					numString3 += "] C = "  + ic + " S = " + is + " T ="+ total2+"<br>";
+					
+                    
+                    //total = 0;
+                    /* Quick Sort */
+                    
+                    
+                    numString4 = "Quick Sort:<br>["
+                    //console.log(qsArr);
+                    if (qsArr.length > 0){
+                    qsae = qsArr.shift()
+                    //console.log(qsae);
+                    if (qsae == "check"){
+                        qc++;
+                    }
+                    else {
+                        let i = qsae;
+                        let j = qsArr.shift();
+                        swap(qNums,i,j);
+                        qs++;
+                    }
+                    }
+                    
+                    
+                    for (var i = 0; i < qNums.length; i++){
+						numString4 += a+255*qNums[i]/tot+b+"."+c;
+					}
+                    total3 = qc+qs;
+                    numString4 += "] C = "  + qc + " S = " + qs + " T ="+ total3+"<br>";
+                    
+                    
+                  /* Displaying the sorts */  
+					document.body.innerHTML =numString+numString2+numString3+numString4 ;
+                    
+                    oldtottot = tottot;
+                    tottot = total1+total2+total3;
+                 
+					requestAnimationFrame(display);
+                    
+                    
+                    
+                    
+				}
+                
+
+			}
+			function swap(ar, a, b){
+				var temp = 0;
+				temp = ar[a];
+				ar[a] = ar[b];
+				ar[b] = temp;
+			}
+            
+            
+            
+            
+function quickSort(arr, left, right){
+   var len = arr.length, 
+   pivot,
+   partitionIndex;
+
+
+  if(left < right){
+    pivot = right;
+    partitionIndex = partition(arr, pivot, left, right);
+    
+   //sort left and right
+   quickSort(arr, left, partitionIndex - 1);
+   quickSort(arr, partitionIndex + 1, right);
+  }
+  return arr;
+}
+            
+function partition(arr, pivot, left, right){
+   var pivotValue = arr[pivot],
+       partitionIndex = left;
+
+   for(var i = left; i < right; i++){
+    if(arr[i] < pivotValue){
+      swap(arr, i, partitionIndex);
+      qsArr.push(i);
+      qsArr.push(partitionIndex);
+      partitionIndex++;
+    }
+       else{
+           qsArr.push("check");
+       }
+  }
+  swap(arr, right, partitionIndex);
+    qsArr.push(right,partitionIndex);
+  return partitionIndex;
+}
+           
+            
+     
+
+			
+		</script>
+		
+		
+	</body>
+</html>
