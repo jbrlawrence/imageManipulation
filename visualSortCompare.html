@@ -36,7 +36,7 @@
             console.log(nums);
             console.log(qsSorted);
             console.log(qsArr)
-			numString += "]<br>";
+			numString += "]<br><br><br>";
 			var iNums = nums.slice();
             var qNums = nums.slice();
 			document.body.innerHTML=numString;
@@ -122,7 +122,7 @@
 						numString3 += a+255*iNums[i]/tot+b+"."+c;
 					}
 					var total2 = is + ic;
-					numString3 += "] Comparison = "  + ic + " Swaps = " + is + " Total ="+ total2+"<br>";
+					numString3 += "] Comparison = "  + ic + " Swaps = " + is + " Total ="+ total2+"<br><br><br>";
 					
                     
                     //total = 0;
@@ -150,7 +150,7 @@
 						numString4 += a+255*qNums[i]/tot+b+"."+c;
 					}
                     total3 = qc+qs;
-                    numString4 += "] Comparison = "  + qc + " Swaps = " + qs + " Total ="+ total3+"<br>";
+                    numString4 += "] Comparison = "  + qc + " Swaps = " + qs + " Total ="+ total3+"<br><br><br>";
                     
                     
                   /* Displaying the sorts */  
