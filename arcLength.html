@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>arcLength</title>
+
+    <style>
+        body {
+            padding: 0px;
+            margin: 20px;
+            background-color: gainsboro;
+        }
+
+        canvas {
+            overflow: hidden
+        }
+
+    </style>
+</head>
+
+<body >
+    <h3>
+        Length:<input type="number" onchange="update()" id="inLength">mm<br>
+        Height:<input type="number" onchange="update()" id="inWidth">mm<br>
+        Length of bent member: <div id="area">0</div>mm</h3>
+
+</body>
+<script>
+    let a;
+    let length = 0;
+    let width = 0;
+
+
+
+
+
+    function update() {
+        let l = parseFloat(document.getElementById("inLength").value);
+        let w = parseFloat(document.getElementById("inWidth").value);
+        let step = 1000000;
+        let x = 0;
+        let x_1 = 0;
+        let y = 0;
+        let y_1 = 0;
+        let d = 0;
+        let space = l/step;
+        let delx2 = space*space;
+        for (let i = 0; i < step; i++){
+            y = w*Math.sin(Math.PI*x/l);
+            x_1 = x+space;
+            y_1 = w*Math.sin(Math.PI*x_1/l)
+            let dely = y_1-y;
+            let dely2 = dely*dely;
+            d = d+Math.sqrt(dely2+delx2);
+            x = x_1;
+        }
+        console.log("min = " + 2*(Math.sqrt(l*l/4 + w*w)));
+//        console.log("max = " + 2*Math.PI*l);
+        //start = new Date();
+        document.getElementById("area").innerHTML = d;
+      //  T = l * 60 * 1000;
+
+    }
+
+</script>
+
+</html>
