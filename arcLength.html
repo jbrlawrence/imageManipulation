@@ -11,6 +11,11 @@
             margin: 20px;
             background-color: gainsboro;
         }
+        #page {
+            max-width: 500px;
+            margin: auto;
+            
+        }
 
         canvas {
             overflow: hidden
@@ -20,11 +25,15 @@
 </head>
 
 <body >
+    <div id="page">
+    <h2>Length of Bending Members</h2>
+    The length of a bending member is calculated using the length between the two points it connects, and the height of the peak of the bending member above and perpendicular to the line between the two points it connects. Both of these numbers can be found from the <em>l</em> and <em>h</em> found in the <a href="https://www.desmos.com/calculator/afodash7fa">Desmos calculator</a>.
     <h3>
-        Length:<input type="number" onchange="update()" id="inLength">mm<br>
-        Height:<input type="number" onchange="update()" id="inWidth">mm<br>
-        Length of bent member: <div id="area">0</div>mm</h3>
-
+        Length of bent arch: <input type="number" onchange="update()" id="inLength">mm<br> 
+        Height of bent arch: <input type="number" onchange="update()" id="inWidth">mm<br>
+        Total length of bent member: <span id="area">0</span>mm
+        </h3>
+    </div>
 </body>
 <script>
     let a;
